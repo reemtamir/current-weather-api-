@@ -7,6 +7,7 @@ function getWeather() {
   )
     .then((data) => data.json())
     .then((body) => {
+      const image = `http://openweathermap.org/img/wn/${body.weather[0].icon}@2x.png`;
       let html = `
       <div class="card-body">
         <h5 class="card-title">${body.name}</h5>
@@ -14,7 +15,7 @@ function getWeather() {
       <ul class="list-group list-group-flush">
         <li class="list-group-item">temp: ${Math.round(
           body.main.temp
-        )} &#8451 </li>
+        )} &#8451  <img src="${image}"></li>
         <li class="list-group-item"> Description: ${
           body.weather[0].description
         }</li>
